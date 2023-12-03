@@ -73,6 +73,82 @@ export default function Home() {
       });
   }
 
+  function edit() {
+    if (name === "") return alert("Digite um nome!");
+  
+    const editEndpoint = `${apiUrl}/user/:id`; 
+  
+    setLoading(true);
+
+    axios
+      .get(`${apiUrl}/user/${name}`)
+      .then((response) => {
+        const user = response.data[0];
+  
+        const updatedName = prompt("Enter the new name:", user.nome);
+  
+        if (updatedName !== null) {
+          axios
+            .put(editEndpoint.replace(":id", user.id), { nome: updatedName })
+            .then(() => {
+              alert("Usuário atualizado com sucesso!");
+              setAtualiza(!atualiza);
+              setLoading(false);
+            })
+            .catch((error) => {
+              console.log(error);
+              alert("Erro ao atualizar usuário!");
+              setLoading(false);
+            });
+        } else {
+          setLoading(false);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Usuário não encontrado!");
+        setLoading(false);
+      });
+  }
+  
+  function del() {
+    if (name === "") return alert("Digite um nome!");
+  
+    const delEndpoint = `${apiUrl}/user/:id`; 
+  
+    setLoading(true);
+  
+    axios
+      .get(`${apiUrl}/user/${name}`)
+      .then((response) => {
+        const user = response.data[0];
+  
+        const confirmDelete = window.confirm(`Tem certeza que deseja excluir ${user.nome}?`);
+  
+        if (confirmDelete) {
+          axios
+            .delete(delEndpoint.replace(":id", user.id))
+            .then(() => {
+              alert("Usuário excluído com sucesso!");
+              setAtualiza(!atualiza);
+              setLoading(false);
+            })
+            .catch((error) => {
+              console.log(error);
+              alert("Erro ao excluir usuário!");
+              setLoading(false);
+            });
+        } else {
+          setLoading(false);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Usuário não encontrado!");
+        setLoading(false);
+      });
+  }
+
   function renderLoading() {
     return <div className={styles.loading}></div>;
   }
@@ -115,6 +191,12 @@ export default function Home() {
               </div>
               <div className={styles.optionFind} onClick={find}>
                 Buscar
+              </div>
+              <div className={styles.optionInclude} onClick={edit}>
+                editar
+              </div>
+              <div className={styles.optionFindAll} onClick={del}>
+                deletar
               </div>
             </div>
           </div>
