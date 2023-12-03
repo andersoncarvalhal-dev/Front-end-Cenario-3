@@ -92,7 +92,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.top}>
-          <p className={rubik.className}>SITE - CENÁRIO 2</p>
+          <p className={rubik.className}>SITE - CENÁRIO 3</p>
         </div>
         <div className={styles.middle}>
           <div className={styles.containerOptions}>
