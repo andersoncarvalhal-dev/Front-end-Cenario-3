@@ -193,10 +193,10 @@ export default function Home() {
                 Buscar
               </div>
               <div className={styles.optionInclude} onClick={edit}>
-                editar
+                Editar
               </div>
               <div className={styles.optionFindAll} onClick={del}>
-                deletar
+                Deletar
               </div>
             </div>
           </div>
