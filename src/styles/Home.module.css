@@ -44,22 +44,22 @@
   justify-content: center;
   align-items: center;
   border: 1px solid #000;
-  border-radius: 2rem;
+  border-radius: 10px;
 }
 
 .containerOptions {
-  width: 50%;
-  height: 20%;
+  width: 80%;
+  height: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #000;
   border-radius: 2rem;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .containerButtons {
-  width: 90%;
+  width: 50%;
   height: 100%;
   display: flex;
   justify-content: space-around;
@@ -67,7 +67,7 @@
 }
 
 .list {
-  height: 50px;
+  height: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,44 +87,44 @@
 }
 
 .containerItems {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
-  padding: 19px;
+  padding: 50px;
 }
 
 .optionInclude {
   width: 30%;
-  height: 30%;
+  height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px;
-  border-radius: 30px;
+  border-radius: 0px;
   cursor: pointer;
-  background: #0ab0ab;
+  background: #009f20;
 }
 
 .optionFind {
-  width: 30%;
-  height: 30%;
+  width: 25%;
+  height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px;
-  border-radius: 30px;
+  border-radius: 0px;
   cursor: pointer;
   background: #ffa500;
 }
 
 .optionFindAll {
-  width: 30%;
-  height: 30%;
+  width: 25%;
+  height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px;
-  border-radius: 30px;
+  border-radius: 0px;
   cursor: pointer;
   background: #ff5454;
 }
@@ -142,7 +142,7 @@
 .loading {
   width: 50px;
   height: 50px;
-  border: 5px solid #080808;
+  border: 5px solid #080808a7;
   border-top: 5px solid transparent;
   border-radius: 50%;
   animation: spin 2s linear infinite;
