@@ -9,14 +9,13 @@
 .top {
   background-color: #8d0333;
   width: 100%;
-  height: 80px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  
   color: #d4b277;
   font-size: 2.5rem;
-  weight: bold;
+  height: bold;
 }
 
 .middle {
@@ -100,13 +99,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 15px;
-
   border-radius: 30px;
-
   cursor: pointer;
-
   background: #0ab0ab;
 }
 
@@ -116,13 +111,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 15px;
-
   border-radius: 30px;
-
   cursor: pointer;
-
   background: #ffa500;
 }
 
@@ -132,13 +123,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 15px;
-
   border-radius: 30px;
-
   cursor: pointer;
-
   background: #ff5454;
 }
 
@@ -146,11 +133,9 @@
   background-color: #8d0333;
   width: 100%;
   height: 2rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   color: #ffffff;
 }
 
