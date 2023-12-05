@@ -118,7 +118,7 @@ export default function Home() {
     if (name === "") return alert("Digite um nome!");
   
     const findEndpoint = `${apiUrl}/user?name=${name}`;
-    const delEndpoint = `${apiUrl}/user/:id`;
+    const delEndpoint = `${apiUrl}/user`;
   
     setLoading(true);
   
@@ -139,31 +139,26 @@ export default function Home() {
         const confirmDelete = window.confirm(`Tem certeza que deseja excluir ${user.nome}?`);
   
         if (confirmDelete) {
-
           axios
-            .delete(delEndpoint.replace(":id", user.id))
+            .delete(delEndpoint, { data: { name: user.nome } })
             .then(() => {
               alert("Usuário excluído com sucesso!");
               setAtualiza(!atualiza);
               setLoading(false);
-              console.log("ta entrando aqui");
             })
             .catch((error) => {
               console.log(error);
               alert("Erro ao excluir usuário!");
               setLoading(false);
-              console.log("erro no catch do axios");
             });
         } else {
           setLoading(false);
-          console.log("caiu no else");
         }
       })
       .catch((error) => {
         console.log(error);
         alert("Erro ao buscar usuário!");
         setLoading(false);
-        
       });
   }
   
