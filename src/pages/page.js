@@ -146,20 +146,24 @@ export default function Home() {
               alert("Usuário excluído com sucesso!");
               setAtualiza(!atualiza);
               setLoading(false);
+              console.log("ta entrando aqui");
             })
             .catch((error) => {
               console.log(error);
               alert("Erro ao excluir usuário!");
               setLoading(false);
+              console.log("erro no catch do axios");
             });
         } else {
           setLoading(false);
+          console.log("caiu no else");
         }
       })
       .catch((error) => {
         console.log(error);
         alert("Erro ao buscar usuário!");
         setLoading(false);
+        
       });
   }
   
