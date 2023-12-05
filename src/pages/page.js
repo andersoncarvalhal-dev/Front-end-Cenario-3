@@ -117,18 +117,29 @@ export default function Home() {
   function del() {
     if (name === "") return alert("Digite um nome!");
   
-    const delEndpoint = `${apiUrl}/user/:id`; 
+    const findEndpoint = `${apiUrl}/user?name=${name}`;
+    const delEndpoint = `${apiUrl}/user/:id`;
   
     setLoading(true);
   
+    // Encontrar usuário pelo nome
     axios
-      .get(`${apiUrl}/user/${name}`)
+      .get(findEndpoint)
       .then((response) => {
-        const user = response.data[0];
+        const users = response.data;
+  
+        if (users.length === 0) {
+          alert("Usuário não encontrado!");
+          setLoading(false);
+          return;
+        }
+  
+        const user = users[0];
   
         const confirmDelete = window.confirm(`Tem certeza que deseja excluir ${user.nome}?`);
   
         if (confirmDelete) {
+
           axios
             .delete(delEndpoint.replace(":id", user.id))
             .then(() => {
@@ -147,10 +158,11 @@ export default function Home() {
       })
       .catch((error) => {
         console.log(error);
-        alert("Usuário não encontrado!");
+        alert("Erro ao buscar usuário!");
         setLoading(false);
       });
   }
+  
 
   function renderLoading() {
     return <div className={styles.loading}></div>;
